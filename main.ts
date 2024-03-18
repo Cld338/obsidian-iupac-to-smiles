@@ -3,7 +3,7 @@ import { Plugin } from 'obsidian';
 export default class ChemistryPlugin extends Plugin {
     async onload() {
         this.addCommand({
-            id: 'convert-iupac-to-smiles',
+            id: 'obsidian-iupac-to-smiles',
             name: 'Convert IUPAC Name to SMILES',
             editorCallback: async (editor, view) => {
                 const doc = editor.getDoc();
