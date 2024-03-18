@@ -3,9 +3,9 @@
 	"name": "IUPAC to SMILES",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
+	"description": "Converts IUPAC chemical formula to SMILES notation for the SMILES renderer.",
 	"author": "cloudier338",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"authorUrl": "https://github.com/Cld338",
+	"fundingUrl": "https://github.com/Cld338",
 	"isDesktopOnly": false
 }
