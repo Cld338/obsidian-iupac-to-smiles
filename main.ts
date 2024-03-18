@@ -15,7 +15,7 @@ export default class ChemistryPlugin extends Plugin {
     }
 
     async convertIUPACToSmiles(content: string): Promise<string> {
-        const iupacRegex = /```IUPAC\n([\s\S]*?)\n```/g;
+        const iupacRegex = /```iupac\n([\s\S]*?)\n```/g;
         let match;
         let convertedContent = content;
 
