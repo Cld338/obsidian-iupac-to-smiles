@@ -69,4 +69,4 @@ The "IUPAC to SMILES" plugin allows users to easily convert chemical names writt
 
 ## Contact
 
-- For any questions or support, feel free to reach out via email at [your-email@example.com].
+- For any questions or support, feel free to reach out via email at [jihuno291@gmail.com].
