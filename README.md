@@ -1,96 +1,72 @@
-# Obsidian Sample Plugin
+# IUPAC to SMILES Obsidian Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This Obsidian plugin converts IUPAC chemical names into SMILES notation.
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+## Description
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
+The "IUPAC to SMILES" plugin allows users to easily convert chemical names written in IUPAC format within an Obsidian note into SMILES notation, which is more suitable for computational processing. This plugin is useful for researchers and students in chemistry who work with chemical structures.
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+## Key Features
 
-## First time developing plugins?
+- **Easy Conversion**: Converts IUPAC names to SMILES within code blocks.
+- **Seamless Integration**: Perform conversions directly within the Obsidian editor.
+- **Multi-Conversion Support**: Converts multiple IUPAC names in a single note at once.
 
-Quick starting guide for new plugin devs:
+## Installation
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+1. **Download the Plugin**:
+   - Download the latest version of the plugin from the [GitHub repository](#).
 
-## Releasing new releases
+2. **Install the Plugin**:
+   - Copy the `main.js` and `manifest.json` files into your Obsidian vault's plugin folder: `.obsidian/plugins/iupac-to-smiles`. If the folder doesn’t exist, create it.
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+3. **Enable the Plugin**:
+   - Open Obsidian and navigate to **Settings** -> **Community Plugins**.
+   - Disable **Safe Mode**.
+   - Find "IUPAC to SMILES" in the list of available plugins and enable it.
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+## Usage
 
-## Adding your plugin to the community plugin list
+1. **Write IUPAC Names**:
+   - In a note, create a code block with the language set to `iupac`, and write the chemical name:
 
-- Check https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+     \`\`\`iupac
+     ethanol
+     \`\`\`
 
-## How to use
+2. **Run the Conversion**:
+   - Open the command palette (Ctrl+P on Windows or Cmd+P on Mac), search for **"Convert IUPAC Name to SMILES"**, and run the command.
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+3. **View the Result**:
+   - The code block will be converted to `smiles` format with the corresponding SMILES notation:
 
-## Manually installing the plugin
+     \`\`\`smiles
+     CCO
+     \`\`\`
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+## Requirements
 
-## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- To use eslint with this project, make sure to install eslint from terminal:
-  - `npm install -g eslint`
-- To use eslint to analyze this project use this command:
-  - `eslint main.ts`
-  - eslint will then create a report with suggestions for code improvement by file and line number.
-- If your source code is in a folder, such as `src`, you can use eslint with this command to analyze all files in that folder:
-  - `eslint .\src\`
+- **Obsidian Version**: 0.9.12 or higher
+- **Internet Connection**: Required for converting IUPAC names to SMILES via an external API.
 
-## Funding URL
+## Notes
 
-You can include funding URLs where people who use your plugin can financially support it.
+- This plugin uses the [NCI Cactus Chemical Identifier Resolver](https://cactus.nci.nih.gov/chemical/structure) API to perform conversions.
+- Ensure you comply with the API's terms of use and usage limitations.
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+## Contributing
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
-```
+- If you find any bugs or have feature requests, please submit them through the [GitHub Issues](#) page.
+- Contributions through pull requests are welcome.
 
-If you have multiple URLs, you can also do:
+## License
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+- This plugin is licensed under the [MIT License](#).
 
-## API Documentation
+## Acknowledgments
 
-See https://github.com/obsidianmd/obsidian-api
+- Special thanks to the NCI Cactus for providing the chemical structure conversion services used in this plugin.
+
+## Contact
+
+- For any questions or support, feel free to reach out via email at [your-email@example.com].
