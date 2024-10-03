@@ -1,7 +1,7 @@
 {
 	"id": "iupac-to-smiles",
 	"name": "IUPAC to SMILES",
-	"version": "1.0.0",
+	"version": "v1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Converts IUPAC chemical formula to SMILES notation for the SMILES renderer.",
 	"author": "cloudier338",
