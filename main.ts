@@ -1,10 +1,10 @@
-import { Plugin } from 'obsidian';
+import { Plugin, requestUrl } from 'obsidian';
 
 export default class ChemistryPlugin extends Plugin {
     async onload() {
         this.addCommand({
             id: 'obsidian-iupac-to-smiles',
-            name: 'Convert IUPAC Name to SMILES',
+            name: 'Convert IUPAC name to SMILES',
             editorCallback: async (editor, view) => {
                 const doc = editor.getDoc();
                 const content = doc.getValue();
